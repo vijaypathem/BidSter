@@ -64,7 +64,7 @@ def create_users(request):
 @permission_classes(())
 def view_auctions(request):
     if request.method == "GET":
-        auctions = Auction.objects.all()
+        auctions = Auction.objects.filter(status="open")
         serializer = AuctionSerializer(auctions, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 

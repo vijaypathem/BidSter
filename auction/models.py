@@ -13,7 +13,7 @@ class Auction(models.Model):
     end_time = models.DateTimeField()
     base_price = models.DecimalField(max_digits=10, decimal_places=2)
     winner = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
-    status = models.CharField(max_length=10, default="closed")
+    status = models.CharField(max_length=10)
 
     def __str__(self):
         return self.auction_name
